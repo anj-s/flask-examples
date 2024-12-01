@@ -1,5 +1,5 @@
 body {
-    margin: auto;
+    /* Set the margin of the body to auto */
     width: 750px;
 }
 
@@ -12,22 +12,26 @@ nav ul {
 }
 
 nav li {
-    float: left;
-}
-
-nav li a {
+    /* Set the display property to block */
+    /* Set the color to white */
+    /* Center the text */
+    /* Add padding */
+    /* Set the display property to block */
+    /* Set the color to white */
+    /* Center the text */
+    /* Add padding */
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
-
+    /* Set the background color to #111 when hovered */
 nav li a:hover {
     background-color: #111;
 }
 
-main {
+    /* Add padding to the main section */
     padding: 10px 20px;
 }
 
@@ -42,6 +46,16 @@ footer {
 }
 
 .alert {
+    /* Set the position of the alert */
+    /* Add padding to the alert */
+    /* Add margin to the alert */
+    /* Set the border of the alert */
+    /* Set the border radius of the alert */
+    /* Set the color of the alert */
+    /* Set the background color of the alert */
+    /* Set the border color of the alert */
+
+.alert {
   position: relative;
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
@@ -52,11 +66,18 @@ footer {
   border-color: #b8daff;
 }
 
+
+.note p {
+    /* Add padding to the paragraph */
+    /* Add a border to the left of the paragprah */
 .note p {
     padding: 10px;
     border-left: solid 2px #bbb;
 }
 
+
+.note form {
+    /* Make the form display inline */
 .note form {
     display: inline;
 }
@@ -65,6 +86,7 @@ footer {
 .btn {
     font-family: Arial;
     font-size: 14px;
+    /* Set the font family of the button */
     padding: 5px 10px;
     text-decoration: none;
     border:none;
@@ -75,6 +97,15 @@ footer {
 }
 
 .btn:hover {
+    /* Remove the text decoration */
+    /* Set the background color to black */
+    /* Set the color to white */
+    /* Set the border to black */
+    /* Remove the text decoration */
+    /* Set the background color to black */
+    /* Set the color to white */
+    /* Set the border to black */
+
   text-decoration: none;
   background-color: black;
   color: white;

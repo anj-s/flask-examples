@@ -1,16 +1,15 @@
 /*!
  * Bootstrap Reboot v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
  */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-}
-
+*,
+*::before,
+*::after {
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -20,27 +19,25 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-@-ms-viewport {
-  width: device-width;
-}
 
+  /* Sets display */
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
-body {
+  /* Sets default font family */
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* Sets default font size */
   font-size: 1rem;
-  font-weight: 400;
+  /* Sets default font weight to Normal */
   line-height: 1.5;
-  color: #212529;
+  /* Sets default line height */
   text-align: left;
-  background-color: #fff;
+  /* Sets default text color to dark gray */
 }
-
+  /* Sets default text alignment */
 [tabindex="-1"]:focus {
-  outline: 0 !important;
+  /* Sets default background color to white */
 }
 
 hr {
@@ -51,23 +48,23 @@ hr {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
+  /* Resets margin top */
   margin-bottom: 0.5rem;
 }
-
 p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
-abbr[title],
+  abbr[data-original-title] {
 abbr[data-original-title] {
   text-decoration: underline;
-  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
   border-bottom: 0;
 }
 
+  /* Sets margin bottom */
 address {
   margin-bottom: 1rem;
   font-style: normal;
@@ -88,11 +85,9 @@ ul ol {
   margin-bottom: 0;
 }
 
-dt {
   font-weight: 700;
 }
 
-dd {
   margin-bottom: .5rem;
   margin-left: 0;
 }
@@ -105,6 +100,7 @@ dfn {
   font-style: italic;
 }
 
+  strong {
 b,
 strong {
   font-weight: bolder;
@@ -126,27 +122,32 @@ sub {
   bottom: -.25em;
 }
 
+  /* Sets top margin */
 sup {
   top: -.5em;
 }
 
 a {
+  /* Resets text decoration */
   color: #007bff;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
+  /* Sets hover color to a darker blue */
 a:hover {
   color: #0056b3;
   text-decoration: underline;
 }
 
+  /* Resets color and text decoration to inherit values */
 a:not([href]):not([tabindex]) {
   color: inherit;
   text-decoration: none;
 }
 
+  /* Resets color and text decoration to inherit values */
 a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
   color: inherit;
   text-decoration: none;
@@ -160,10 +161,12 @@ pre,
 code,
 kbd,
 samp {
+  /* Sets font family to monospace */
   font-family: monospace, monospace;
   font-size: 1em;
 }
 
+  /* Resets margin top */
 pre {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -175,7 +178,7 @@ figure {
   margin: 0 0 1rem;
 }
 
-img {
+  /* Resets border style to none */
   vertical-align: middle;
   border-style: none;
 }
@@ -188,6 +191,7 @@ table {
   border-collapse: collapse;
 }
 
+  /* Sets default padding */
 caption {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -200,11 +204,13 @@ th {
   text-align: inherit;
 }
 
+  /* Sets display to inline-block */
 label {
   display: inline-block;
   margin-bottom: .5rem;
 }
 
+  /* Resets border radius to 0 */
 button {
   border-radius: 0;
 }
@@ -216,6 +222,7 @@ button:focus {
 
 input,
 button,
+  button,
 select,
 optgroup,
 textarea {
@@ -225,17 +232,20 @@ textarea {
   line-height: inherit;
 }
 
+  input {
 button,
 input {
   overflow: visible;
 }
 
+  select {
 button,
 select {
   text-transform: none;
 }
 
 button,
+  html [type="button"],
 html [type="button"],
 [type="reset"],
 [type="submit"] {
@@ -243,6 +253,7 @@ html [type="button"],
 }
 
 button::-moz-focus-inner,
+  [type="button"]::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
@@ -250,6 +261,7 @@ button::-moz-focus-inner,
   border-style: none;
 }
 
+  /* Sets box sizing to border box */
 input[type="radio"],
 input[type="checkbox"] {
   box-sizing: border-box;
@@ -259,11 +271,11 @@ input[type="checkbox"] {
 input[type="date"],
 input[type="time"],
 input[type="datetime-local"],
-input[type="month"] {
   -webkit-appearance: listbox;
 }
 
 textarea {
+  /* Sets overflow to auto */
   overflow: auto;
   resize: vertical;
 }
@@ -279,6 +291,7 @@ legend {
   display: block;
   width: 100%;
   max-width: 100%;
+  /* Resets padding to 0 */
   padding: 0;
   margin-bottom: .5rem;
   font-size: 1.5rem;
@@ -291,6 +304,7 @@ progress {
   vertical-align: baseline;
 }
 
+  /* Resets height */
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto;
@@ -298,28 +312,29 @@ progress {
 
 [type="search"] {
   outline-offset: -2px;
-  -webkit-appearance: none;
 }
 
-[type="search"]::-webkit-search-cancel-button,
+  /* Resets appearance to none */
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
 ::-webkit-file-upload-button {
   font: inherit;
-  -webkit-appearance: button;
+  /* Resets appearance to button */
 }
 
 output {
   display: inline-block;
 }
 
+  /* Sets display to list-item */
 summary {
   display: list-item;
   cursor: pointer;
 }
 
+  /* Sets display to none */
 template {
   display: none;
 }
@@ -327,4 +342,3 @@ template {
 [hidden] {
   display: none !important;
 }
-/*# sourceMappingURL=bootstrap-reboot.css.map */

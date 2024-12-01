@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
     :author: Grey Li (李辉)
     :url: http://greyli.com
@@ -6,10 +7,6 @@
     :license: MIT, see LICENSE for more details.
 """
 import click
-from flask import Flask
-
-app = Flask(__name__)
-
 
 # the minimal Flask application
 @app.route('/')
@@ -31,8 +28,7 @@ def greet(name):
     return '<h1>Hello, %s!</h1>' % name
 
 
-# custom flask cli command
-@app.cli.command()
+    app = Flask(__name__)
 def hello():
     """Just say hello."""
     click.echo('Hello, Human!')
