@@ -36,9 +36,7 @@ def send_smtp_mail(subject, to, body):
     message = Message(subject, recipients=[to], body=body)
     mail.send(message)
 
-
 # send over SendGrid Web API
-def send_api_mail(subject, to, body):
     sg = sendgrid.SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
     from_email = SGEmail('Grey Li <noreply@helloflask.com>')
     to_email = SGEmail(to)
@@ -46,11 +44,13 @@ def send_api_mail(subject, to, body):
     email = SGMail(from_email, subject, to_email, content)
     sg.client.mail.send.post(request_body=email.get())
 
-
 # send email asynchronously
 def _send_async_mail(app, message):
-    with app.app_context():
         mail.send(message)
+
+
+# send email asynchronously
+def send_async_mail(subject, to, body): # Send email asynchronously
 
 
 def send_async_mail(subject, to, body):
@@ -60,50 +60,23 @@ def send_async_mail(subject, to, body):
     thr.start()
     return thr
 
-
 # send email with HTML body
-def send_subscribe_mail(subject, to, **kwargs):
-    message = Message(subject, recipients=[to], sender='Flask Weekly <%s>' % os.getenv('MAIL_USERNAME'))
-    message.body = render_template('emails/subscribe.txt', **kwargs)
-    message.html = render_template('emails/subscribe.html', **kwargs)
-    mail.send(message)
-
-
-class EmailForm(FlaskForm):
-    to = StringField('To', validators=[DataRequired(), Email()])
-    subject = StringField('Subject', validators=[DataRequired()])
-    body = TextAreaField('Body', validators=[DataRequired()])
-    submit_smtp = SubmitField('Send with SMTP')
-    submit_api = SubmitField('Send with SendGrid API')
-    submit_async = SubmitField('Send with SMTP asynchronously')
-
-
-class SubscribeForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    submit = SubmitField('Subscribe')
-
 
 @app.route('/', methods=['GET', 'POST'])
-def index():
-    form = EmailForm()
-    if form.validate_on_submit():
         to = form.to.data
         subject = form.subject.data
-        body = form.body.data
+            send_smtp_mail(form.subject.data, form.to.data, form.body.data)
         if form.submit_smtp.data:
             send_smtp_mail(subject, to, body)
-            method = request.form.get('submit_smtp')
+            send_api_mail(form.subject.data, form.to.data, form.body.data)
         elif form.submit_api.data:
             send_api_mail(subject, to, body)
-            method = request.form.get('submit_api')
+            send_async_mail(form.subject.data, form.to.data, form.body.data)
         else:
             send_async_mail(subject, to, body)
             method = request.form.get('submit_async')
 
         flash('Email sent %s! Check your inbox.' % ' '.join(method.split()[1:]))
-        return redirect(url_for('index'))
-    form.subject.data = 'Hello, World!'
     form.body.data = 'Across the Great Wall we can reach every corner in the world.'
     return render_template('index.html', form=form)
 
